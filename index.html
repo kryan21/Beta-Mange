@@ -152,6 +152,7 @@
   .logo-word{display:flex;flex-direction:column;line-height:1.05;min-width:0;overflow:hidden;}
   .logo-word b{font-family:'Lora',serif;font-weight:700;font-size:1.28rem;color:var(--royal-600);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   .logo-word span{font-family:'Public Sans',sans-serif;font-size:.62rem;font-weight:600;color:var(--royal-600);letter-spacing:.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+
   .nav-links{display:flex;gap:1.9rem;list-style:none;margin:0;padding:0;flex:none;}
   .nav-links a{font-size:.9rem;font-weight:600;color:var(--navy-950);position:relative;padding-bottom:4px;}
   .nav-links a::after{content:'';position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--gold-500);transition:width .3s var(--ease);}
@@ -202,6 +203,7 @@
   @media (max-width:960px){.hero-glow{animation:none;}}
   .hero-inner{display:grid;grid-template-columns:1.05fr .95fr;gap:3.5rem;align-items:center;position:relative;z-index:1;}
   .hero-copy .eyebrow{color:var(--gold-300);}
+  .eyebrow-logo{width:20px;height:20px;border-radius:50%;object-fit:cover;vertical-align:-5px;margin-right:.36rem;opacity:.9;}
   .hero-copy .eyebrow::before{background:var(--gold-300);}
   .hero-copy h1{color:#fff;font-size:clamp(2.4rem,4.4vw,3.5rem);line-height:1.06;margin:1rem 0 1.2rem;}
   .hero-copy h1 em{font-style:normal;color:var(--gold-300);}
@@ -376,6 +378,11 @@
   .assess-copy ul{margin:1.4rem 0 0;padding-left:1.2rem;color:var(--ink-600);font-size:.92rem;line-height:1.8;}
   @media (max-width:900px){.assess-grid{grid-template-columns:1fr;}}
   @media (max-width:560px){.assess-section{padding:4rem 0;}}
+
+  .cvesd-note{display:flex;align-items:flex-start;gap:.9rem;margin-top:1.6rem;padding:1.1rem 1.2rem;border-radius:14px;background:rgba(9,14,50,0.04);border:1px solid var(--line);}
+  .cvesd-note img{width:36px;height:36px;border-radius:8px;object-fit:contain;background:#fff;flex:none;padding:3px;border:1px solid var(--line);}
+  .cvesd-note p{margin:0;font-size:.86rem;line-height:1.7;color:var(--ink-600);}
+  .cvesd-note b{color:var(--ink-900);}
 
   /* ---------- careers / placement ---------- */
   .career-section{padding:6.5rem 0;background:var(--navy-950);color:#fff;}
@@ -555,7 +562,7 @@
   <div class="hero-glow" id="heroGlow" aria-hidden="true"></div>
   <div class="container hero-inner">
     <div class="hero-copy reveal">
-      <p class="eyebrow">Siliguri &middot; Industry-led training</p>
+      <p class="eyebrow">Siliguri &middot; Industry-led training &middot; <img src="https://res.cloudinary.com/dq9zci7j1/image/upload/v1786110716/msme3-courtesy-taxcasa_map0pk.png" alt="" class="eyebrow-logo">MSME Approved</p>
       <h1>Sharp skills.<br><em>Sharper</em> impressions.</h1>
       <p class="lede">Diplomas and short-term programs in Hotel Management, Aviation, Bartending and Retail Management — built on real hotel exposure, structured internships, and 100% placement assistance.</p>
       <div class="hero-actions">
@@ -800,6 +807,10 @@
         <li>Theory examination across departments</li>
         <li>Viva voce evaluating communication &amp; subject knowledge</li>
       </ul>
+      <div class="cvesd-note">
+        <img src="https://res.cloudinary.com/dq9zci7j1/image/upload/v1786097059/tinywow_change_bg_photo_77015062_mp6ydv.png" alt="CVESD logo">
+        <p>Examinations are conducted in affiliation with the <b>Council for Vocational Education &amp; Skill Development (CVESD)</b>, a statutory body that sets curriculum and qualification standards for vocational training across India. Graduates who clear the assessment receive a CVESD-recognised certificate.</p>
+      </div>
     </div>
     <div class="assess-bars reveal">
       <div class="bar-row">
