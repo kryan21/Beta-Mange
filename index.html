@@ -518,9 +518,119 @@
   ::-webkit-scrollbar{width:10px;}
   ::-webkit-scrollbar-track{background:var(--paper);}
   ::-webkit-scrollbar-thumb{background:var(--navy-700);border-radius:8px;}
+
+  /* ============ SPLASH SCREEN ============ */
+  #splashScreen{
+    position:fixed;inset:0;z-index:9999;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;
+    background:var(--paper-warm);
+    transition:opacity .6s var(--ease),visibility .6s var(--ease);
+  }
+  #splashScreen.hide{opacity:0;visibility:hidden;pointer-events:none;}
+  #splashScreen svg{width:min(58vw,230px);height:auto;overflow:visible;}
+
+  .splash-ray{
+    transform-origin:0px 0px;
+    opacity:0;
+    transform:scale(0.15);
+    animation:splashRayIn .7s cubic-bezier(.2,.8,.3,1.2) forwards;
+    animation-delay:var(--delay);
+  }
+  @keyframes splashRayIn{
+    0%{ opacity:0; transform:scale(0.15); }
+    60%{ opacity:1; }
+    100%{ opacity:1; transform:scale(1); }
+  }
+  .splash-book-line{
+    fill:none;stroke:var(--royal-600);stroke-width:11;stroke-linecap:round;
+    stroke-dasharray:1;stroke-dashoffset:1;
+    animation:splashDraw 1s ease-out forwards;
+    animation-delay:var(--delay);
+  }
+  @keyframes splashDraw{ to{ stroke-dashoffset:0; } }
+
+  .splash-word{
+    opacity:0;
+    animation:splashFadeUp .8s ease-out forwards;
+    animation-delay:1.75s;
+    color:var(--navy-950);
+    text-align:center;line-height:1.2;
+  }
+  .splash-word .main{
+    display:block;font-family:'Lora',serif;font-weight:700;
+    font-size:clamp(24px,5vw,32px);color:var(--navy-950);
+  }
+  .splash-word .sub{
+    display:block;font-family:'Public Sans',sans-serif;font-weight:500;
+    letter-spacing:.02em;font-size:clamp(12px,2vw,15px);margin-top:4px;color:var(--royal-600);
+  }
+  @keyframes splashFadeUp{ from{opacity:0;transform:translateY(8px);} to{opacity:1;transform:translateY(0);} }
+
+  @media (prefers-reduced-motion: reduce){
+    #splashScreen{transition:opacity .2s linear,visibility .2s linear;}
+    .splash-ray,.splash-book-line,.splash-word{animation-duration:.001ms !important;animation-delay:0s !important;}
+  }
 </style>
 </head>
 <body>
+
+<div id="splashScreen" aria-hidden="true">
+  <svg viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="splashGoldGrad" cx="50%" cy="100%" r="120%">
+        <stop offset="0%" stop-color="var(--gold-300)"/>
+        <stop offset="100%" stop-color="var(--gold-500)"/>
+      </radialGradient>
+    </defs>
+    <g>
+      <g transform="translate(400 300) rotate(-82)"><g class="splash-ray" style="--delay:.32s"><path d="M -9,-95 C -9,-125 -20,-150 -20,-172 C -20,-193 -10,-206 0,-206 C 10,-206 20,-193 20,-172 C 20,-150 9,-125 9,-95 Z" fill="url(#splashGoldGrad)"/></g></g>
+      <g transform="translate(400 300) rotate(-63.78)"><g class="splash-ray" style="--delay:.26s"><path d="M -9,-95 C -9,-125 -20,-150 -20,-172 C -20,-193 -10,-206 0,-206 C 10,-206 20,-193 20,-172 C 20,-150 9,-125 9,-95 Z" fill="url(#splashGoldGrad)"/></g></g>
+      <g transform="translate(400 300) rotate(-45.56)"><g class="splash-ray" style="--delay:.20s"><path d="M -9,-95 C -9,-125 -20,-150 -20,-172 C -20,-193 -10,-206 0,-206 C 10,-206 20,-193 20,-172 C 20,-150 9,-125 9,-95 Z" fill="url(#splashGoldGrad)"/></g></g>
+      <g transform="translate(400 300) rotate(-27.33)"><g class="splash-ray" style="--delay:.14s"><path d="M -9,-95 C -9,-125 -20,-150 -20,-172 C -20,-193 -10,-206 0,-206 C 10,-206 20,-193 20,-172 C 20,-150 9,-125 9,-95 Z" fill="url(#splashGoldGrad)"/></g></g>
+      <g transform="translate(400 300) rotate(-9.11)"><g class="splash-ray" style="--delay:.08s"><path d="M -9,-95 C -9,-125 -20,-150 -20,-172 C -20,-193 -10,-206 0,-206 C 10,-206 20,-193 20,-172 C 20,-150 9,-125 9,-95 Z" fill="url(#splashGoldGrad)"/></g></g>
+      <g transform="translate(400 300) rotate(9.11)"><g class="splash-ray" style="--delay:.08s"><path d="M -9,-95 C -9,-125 -20,-150 -20,-172 C -20,-193 -10,-206 0,-206 C 10,-206 20,-193 20,-172 C 20,-150 9,-125 9,-95 Z" fill="url(#splashGoldGrad)"/></g></g>
+      <g transform="translate(400 300) rotate(27.33)"><g class="splash-ray" style="--delay:.14s"><path d="M -9,-95 C -9,-125 -20,-150 -20,-172 C -20,-193 -10,-206 0,-206 C 10,-206 20,-193 20,-172 C 20,-150 9,-125 9,-95 Z" fill="url(#splashGoldGrad)"/></g></g>
+      <g transform="translate(400 300) rotate(45.56)"><g class="splash-ray" style="--delay:.20s"><path d="M -9,-95 C -9,-125 -20,-150 -20,-172 C -20,-193 -10,-206 0,-206 C 10,-206 20,-193 20,-172 C 20,-150 9,-125 9,-95 Z" fill="url(#splashGoldGrad)"/></g></g>
+      <g transform="translate(400 300) rotate(63.78)"><g class="splash-ray" style="--delay:.26s"><path d="M -9,-95 C -9,-125 -20,-150 -20,-172 C -20,-193 -10,-206 0,-206 C 10,-206 20,-193 20,-172 C 20,-150 9,-125 9,-95 Z" fill="url(#splashGoldGrad)"/></g></g>
+      <g transform="translate(400 300) rotate(82)"><g class="splash-ray" style="--delay:.32s"><path d="M -9,-95 C -9,-125 -20,-150 -20,-172 C -20,-193 -10,-206 0,-206 C 10,-206 20,-193 20,-172 C 20,-150 9,-125 9,-95 Z" fill="url(#splashGoldGrad)"/></g></g>
+    </g>
+    <path class="splash-book-line" pathLength="1" style="--delay:.9s" d="M400,332 C440,305 462,345 505,322 C548,299 570,336 612,313 C640,298 655,308 675,296" />
+    <path class="splash-book-line" pathLength="1" style="--delay:1.0s" d="M400,346 C440,319 462,359 505,336 C548,313 570,350 612,327 C640,312 655,322 675,310" />
+    <path class="splash-book-line" pathLength="1" style="--delay:1.1s" d="M400,360 C440,333 462,373 505,350 C548,327 570,364 612,341 C640,326 655,336 675,324" />
+    <path class="splash-book-line" pathLength="1" style="--delay:.9s" d="M400,332 C360,305 338,345 295,322 C252,299 230,336 188,313 C160,298 145,308 125,296" />
+    <path class="splash-book-line" pathLength="1" style="--delay:1.0s" d="M400,346 C360,319 338,359 295,336 C252,313 230,350 188,327 C160,312 145,322 125,310" />
+    <path class="splash-book-line" pathLength="1" style="--delay:1.1s" d="M400,360 C360,333 338,373 295,350 C252,327 230,364 188,341 C160,326 145,336 125,324" />
+  </svg>
+  <div class="splash-word">
+    <span class="main">Global Skills</span>
+    <span class="sub">&amp; Hospitality Management</span>
+  </div>
+</div>
+<script>
+  (function(){
+    var splash = document.getElementById('splashScreen');
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var alreadySeen = sessionStorage.getItem('gshm_splash_seen');
+
+    if(alreadySeen){
+      splash.style.display = 'none';
+    } else {
+      document.body.style.overflow = 'hidden';
+      var waitTime = reduced ? 250 : 2450;
+      setTimeout(function(){
+        splash.classList.add('hide');
+        document.body.style.overflow = '';
+        sessionStorage.setItem('gshm_splash_seen', '1');
+      }, waitTime);
+      // allow users to tap/click to skip
+      splash.addEventListener('click', function(){
+        splash.classList.add('hide');
+        document.body.style.overflow = '';
+        sessionStorage.setItem('gshm_splash_seen', '1');
+      });
+    }
+  })();
+</script>
 
 <div class="scroll-progress" id="scrollProgress"></div>
 
